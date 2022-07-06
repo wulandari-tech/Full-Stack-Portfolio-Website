@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'images/apple-touch-icon.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="{% static 'images/favicon-32x32.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="{% static 'images/favicon-16x16.png' %}"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+
+    <!--==================== UNICONS ====================-->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css "
+    />
+
+     <!--==================== FONTAWESOME ====================-->
+
+     <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer" />
+
+    <!--==================== SWIPER CSS ====================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper-bundle.min.css'  %}" />
+
+    <!--==================== CSS ====================-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'  %}" />
+
+    <title>Abhishek Singh | Home</title>
+  </head>
+
+  <body>
+       
+        
+        
+        
+            <!-- {% if messages %}
+
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        {% endif %} -->
+        
+
+
+
+
+
+
+        {% include 'base/navigationbar.html' %}
+
+        {%  block content     %}    
+         
+        
+        {%  endblock content     %}                    
+        
+
+        {% include 'base/footer.html' %}
+
+    
+        <!--==================== SCROLL TOP ====================-->
+         <!--==================== SCROLL TOP ====================-->
+         <a href="#" class="scrollup" id="scroll-up">
+          <i class="uil uil-arrow-up scrollup__icon"></i>
+        </a>
+  
+      <!--==================== SWIPER JS ====================-->
+      <script src="{% static 'js/swiper-bundle.min.js' %}" type="application/javascript"></script>
+  
+      <!--==================== MAIN JS ====================-->
+      <script src="{% static 'js/main.js' %}" type="text/javascript"></script>
+       
+    </body>
+    </html>
+    

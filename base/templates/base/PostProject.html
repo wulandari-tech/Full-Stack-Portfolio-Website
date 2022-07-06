@@ -1,0 +1,147 @@
+    {% extends 'base/layout.html'  %}
+    {% load static %}
+    {% load crispy_forms_tags   %}
+    {% block content  %}
+    
+
+
+        
+    <style type="text/css">
+        #id_tags{
+            max-height: 100px;
+            overflow-y: scroll;
+            border: 1px solid #888;
+            padding: 5px;
+            border-radius: 5px;
+
+        }
+    </style>
+
+
+          <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== IMAGE ====================-->
+        <section class="myprojectsHeader section" id="myprojectsHeader">
+            <div class="myprojectsHeader__container container">
+                <div class="myprojectsHeader__image"></div>
+                <h1 class="home__title myprojectsHeader__title">MY <span
+                        class="myprojectsHeader__title__part2">PROJECTS</span></h1>
+            </div>
+        </section>
+
+        <section class="myprojects section" id="myprojects">
+            <!--==================== FILTER SECTION ====================-->
+            <div class="myprojects__filter">
+
+                <form id="searchForm" class="myprojects__filter_form"    method="GET" >
+                    {{myfilter.form|crispy}}
+                    <input type="submit" value="search"  class="btn btn-primary">
+        
+        
+                </form>
+            </div>
+
+
+
+            <div class="myprojects__container container">
+                {%  for project in projects    %}
+                <!--==================== CARD 1 ====================-->
+                <div class="myprojects__card">
+                    <div class="myprojects__img__div">
+                        <img src="{{ project.thumbnail.url }}" alt="card1" class="myprojects__card__image">
+                    </div>
+                    <div class="myprojects__card__content">
+                        <h3 class="myprojects__title">{{project.title}}</h3>
+                        <div class="myprojects__description">{{project.sub_headline}}</div>
+                        <div class="myprojects__tags" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            {%  for tag in project.tags.all  %}
+                            <div class="other__skills__tags__items">{{tag}}</div>
+                            {% endfor  %}
+                        </div>
+                        <div class="myprojects__buttons">
+                            
+                            <a href="{% url 'project' project.slug  %}" class="button  myprojects__btn myprojects__btn--white">Read More</a>
+                            {% if project.APILink %}
+                            <a href="{{project.APILink}}" class="button  myprojects__btn">Live Preview</a>
+                            {% else%}
+                            <a href="{% url 'NoDemo'   %}" class="button  myprojects__btn" >Live Preview</a>
+                            {% endif %}
+                            {% if request.user.is_authenticated  %}
+                            <a href="{% url 'edit-project' project.slug  %}" class="button  myprojects__btn myprojects__btn--white">Edit</a>
+                            <a href="{% url 'delete-project' project.slug  %}" class="button  myprojects__btn" >Delete</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="h3"> No projects Added.....   </div> 
+            {% endfor  %}
+
+                </div>
+                
+        </section>
+       
+<!--==================== PAGINATION SECTION ====================--> 
+
+        <div class="myprojects__pagination">
+            {% if projects.has_other_pages %}
+        
+                    <ul class="pagination">
+        
+                        {% if projects.has_previous %}
+                            <li class="page-item"><a data-page="{{projects.previous_page_number}}" href="?page={{projects.previous_page_number}}" class="page-link">&laquo</a></li>
+        
+                            <li class="page-item"><a data-page="1" href="?page=1" class="page-link">First</a></li>
+                        {% endif %}
+        
+        
+                        {% for i in projects.paginator.page_range %}
+                            {% if projects.number == i %}
+                                <li class="page-item"><a class="active page-link">{{i}}</a></li>
+                            {% else %}
+                                <li class="page-item"><a data-page="{{i}}" href="?page={{i}}" class="page-link">{{i}}</a></li>
+                            {% endif %}
+                            
+                        {% endfor %}
+        
+        
+                        {% if projects.has_next %}
+                            <li class="page-item"><a data-page="{{projects.paginator.num_pages}}" href="?page={{projects.paginator.num_pages}}" class="page-link">Last</a></li>
+        
+                            <li class="page-item"><a data-page="{{projects.next_page_number}}" href="?page={{projects.next_page_number}}" class="page-link">&raquo</a></li>
+                        {% endif %}
+                    </ul>
+        
+                {% endif %}
+
+        </div>
+    </main>
+    
+
+
+
+            
+    <script type="text/javascript">
+        let searchForm = document.getElementById('searchForm')
+        let pageLinks = document.getElementsByClassName('page-link')
+
+        for(var i=0; pageLinks.length > i; i++){
+
+            pageLinks[i].addEventListener('click', function(e){
+                e.preventDefault()
+                let page = this.dataset.page
+                console.log('Page:', page)
+                searchForm.innerHTML += `<input value="${page}" name="page" hidden >`
+                searchForm.submit()
+            })
+
+        }
+    </script>
+
+
+
+
+
+
+
+        {% endblock content  %}

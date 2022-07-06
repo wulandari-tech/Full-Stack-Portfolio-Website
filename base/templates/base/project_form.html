@@ -1,0 +1,60 @@
+{% extends 'base/layout.html'  %}
+{% load static %}
+{% load crispy_forms_tags   %}
+
+    {% block content  %}
+
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
+
+    <style type="text/css">
+        #div_id_tags > div{
+            max-height: 100px;
+            overflow-y: scroll;
+            border:1px solid #888;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+
+
+    <main class="main">
+        
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <h1>PROJECT FORM</h1>
+
+
+                <form action="" method="POST" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+                    {{form.media}}
+                    {{form|crispy}}
+
+                    <!-- {% for field in form %}
+
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">{{field.label}}</label>
+                        {{field}}
+                    </div>
+                    
+
+                    {% endfor %} -->
+                    
+        <input class="btn btn-primary" type="submit" value="submit">
+
+
+
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    
+
+{% endblock content  %}

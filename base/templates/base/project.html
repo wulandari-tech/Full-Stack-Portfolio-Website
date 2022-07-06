@@ -1,0 +1,67 @@
+        {% extends 'base/layout.html'  %}
+        {% load static %}
+
+        {% block content  %}
+
+
+        <!--==================== MAIN ====================-->
+    <main class="main">
+      <!--==================== IMAGE ====================-->
+      <section class="image section" id="home">
+          <div class="image__container container">
+              <div class="image__content">
+                  <img src="{{project.thumbnail.url}}" alt="project" class="image__content__image">
+              </div>
+              <div class="image_tags">
+                  {%  for tag in project.tags.all  %}
+                  <div class="other__skills__tags__items">{{tag}}</div>
+                  {% endfor  %}
+        
+              </div>
+              <div class="image__vertical__line"></div>
+          </div>
+      </section>
+
+      <!--==================== INDIVIDUAL PROJECTS ====================-->
+      <section class="individual section" id="individual">
+          <div class="individual__container container">
+              <h2 class="individual__title">{{project.title}}</h2>
+              <div class="individual__btns">
+                  {% if project.SourceLink %}
+                <a href="{{  project.SourceLink  }}" class="individual__sourcebtn">
+                    Source Code
+                    <i class="fa-brands fa-github individual__github"></i>
+                </a>
+                {% else %}
+                <a href="{% url 'NoDemo'   %}" class="individual__sourcebtn" >Source Code
+                    <i class="fa-brands fa-github individual__github"></i>
+                </a>
+                {% endif %}
+
+                {% if request.user.is_authenticated  %}
+                <a href="{% url 'edit-project' project.slug  %}" class="individual__edit"><i class="fa-solid fa-pen"></i></a>
+                <a href="{% url 'delete-project' project.slug  %}" class="individual__delete"><i class="fa-solid fa-trash"></i></a>
+              </div>
+              {% endif %}
+          </div>
+      </section>
+
+      <!--==================== DESCRIPTION AREA ====================-->
+      <section class="projectdescription section" id="projectdescription">
+          <div class="projectdescription__container container">
+              <div class="projectdescription__area">
+                  {{project.body|safe}}
+              </div>
+          </div>
+      </section>
+  </main>
+
+
+
+
+
+
+
+  
+
+        {% endblock content  %}

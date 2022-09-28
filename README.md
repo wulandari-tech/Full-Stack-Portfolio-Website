@@ -1,7 +1,7 @@
 
 # Django Portfolio Website
 
-Personnel website made utilizing Django back-end framework and front-end support using HTML/CSS and Bootstrap
+Personnel website made utilizing Django back-end framework and front-end support using HTML/CSS and Bootstrap.
 
 
 

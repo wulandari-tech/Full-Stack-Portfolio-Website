@@ -33,6 +33,8 @@ To deploy this project :
 - Custom Editor
 - Email Connection
 - Project & Skill review
+- Project Filter Section and more.
+  
 
 
 ## Screenshots

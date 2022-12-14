@@ -1,5 +1,5 @@
 
-# Django Portfolio Website
+# Full-Stack Django Portfolio Website
 
 Personnel website made utilizing Django back-end framework and front-end support using HTML/CSS and Bootstrap.
 
@@ -7,7 +7,18 @@ Personnel website made utilizing Django back-end framework and front-end support
 
 
 ## 🔗 Links
+
+#### Sorry, as Heroku has shutdown Free Servers since 30th Nov 2022, website is currently down.But the website is fully functional and working.
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](http://abhisheksingh-portfolio.herokuapp.com/)
+
+## Features
+
+- Light/dark mode toggle
+- Project,Skills,About CRUD operations
+- Rich text Editor (CKEditor) for wrting blogs and posts.
+- Email sending service
+- Project & Skill review page
+- Project Filter Section and more.
 
 ## Deployment
 
@@ -26,14 +37,7 @@ To deploy this project :
 
 
 
-## Features
 
-- Light/dark mode toggle
-- Custom Project Blogs
-- Custom Editor
-- Email Connection
-- Project & Skill review
-- Project Filter Section and more.
   
 
 

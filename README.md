@@ -8,7 +8,7 @@ Personnel website made utilizing Django back-end framework and front-end support
 
 ## 🔗 Links
 
-#### Sorry, as Heroku has shutdown Free Servers since 30th Nov 2022, website is currently down.But the website is fully functional and working.
+#### Sorry, as Heroku has shutdown Free Servers since 30th Nov 2022, website is currently down.But the website is fully functional and working.Currently working on it.
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](http://abhisheksingh-portfolio.herokuapp.com/)
 
 ## Features
